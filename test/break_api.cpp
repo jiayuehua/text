@@ -1703,8 +1703,11 @@ struct line_stateful_cp_extent
 
     mutable int i;
 
+#if !defined(__cpp_coroutines) // TODO: This does not work for GCC's
+                               // impementation as of this writing.
     // Unused; here just to check that moves are done properly.
     std::unique_ptr<int> ptr;
+#endif
 
     static std::vector<int> index_counts;
 };
@@ -2564,8 +2567,11 @@ struct bidi_stateful_cp_extent
 
     mutable int i;
 
+#if !defined(__cpp_coroutines) // TODO: This does not work for GCC's
+                               // impementation as of this writing.
     // Unused; here just to check that moves are done properly.
     std::unique_ptr<int> ptr;
+#endif
 
     static std::vector<int> index_counts;
 };
